@@ -13,8 +13,8 @@ For a sample of the MiniSRC architecture unique to this course, you can browse M
 * [Download the VHDL files for the custom MiniSRC 3-Bus CPU Here](https://github.com/mitchellwaite/MiniSRC-CPU)
 
 # Downloads - Winter 2021
-* [Download the minisrc assembler here](https://github.com/mitchellwaite/MiniSRC-Assembler/raw/master/MiniSRC_ASM/MiniSRC_ASM_CMD/bin/Debug/minisrc_asm.exe)
-* [Download the MiniSRC ISA spec here](https://github.com/mitchellwaite/MiniSRC-Assembler/raw/master/CPU_Spec.pdf)
+* [Download the minisrc assembler here](https://github.com/alexjmck/MiniSRC-Assembler/raw/master/MiniSRC_ASM/MiniSRC_ASM_CMD/bin/Debug/minisrc_asm.exe)
+* [Download the MiniSRC ISA spec here](https://github.com/alexjmck/MiniSRC-Assembler/raw/master/CPU_Spec.pdf)
 
 # How to run
 
