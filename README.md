@@ -1,6 +1,6 @@
 # ELEC374 MiniSRC Assembler / MIF Generator
 
-I wrote a simple assembler program for the mini SRC computer system which was part of the term length CPU design project in the [ELEC 374 course at Queen's University](http://my.ece.queensu.ca/Current-Students/Undergraduate/Course-Summaries/ELEC-374.html). It does not have support for any custom instructions, however if you clone this repository you can add them to the InstructionParser.cs pretty easily. It supports windows natively, but will probably run on any \*nix systems (Mac, Linux, etc.) with the mono framework
+A fantastic upper year has written this code to convert some basic assembly into opcode for the ELEC 374 course at Queen's University.[Queen's ELEC374 Course](https://www.ece.queensu.ca/undergraduate/courses/elec-374.html). It has been adapted to fit the cpuspecs of winter 2021.
 
 !["Screenshot of the program"](https://raw.githubusercontent.com/mitchellwaite/MiniSRC-Assembler/master/Screenshot.png)
 
