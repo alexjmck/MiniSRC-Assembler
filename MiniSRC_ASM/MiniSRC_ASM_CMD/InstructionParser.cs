@@ -14,40 +14,39 @@ namespace MiniSRC_ASM_CMD
 
         public InstructionParser()
         {
-            opcodeDictionary.Add("ld", "00000");
+            opcodeDictionary.Add("ld", "00000"); // Load and Store
             opcodeDictionary.Add("ldi", "00001");
+            //opcodeDictionary.Add("ldr", "00011"); // not in winter 2021?
             opcodeDictionary.Add("st", "00010");
-            opcodeDictionary.Add("ldr", "00011");
-            opcodeDictionary.Add("str", "00100");//
-            opcodeDictionary.Add("add", "00101");
-            opcodeDictionary.Add("sub", "00110");
-            opcodeDictionary.Add("and", "00111");
-            opcodeDictionary.Add("or", "01000");
-            opcodeDictionary.Add("shr", "01001");
-            opcodeDictionary.Add("shl", "01010");
-            opcodeDictionary.Add("ror", "01011");
-            opcodeDictionary.Add("rol", "01100");
-            opcodeDictionary.Add("addi", "01101");
-            opcodeDictionary.Add("andi", "01110");
-            opcodeDictionary.Add("ori", "01111");
-            opcodeDictionary.Add("mul", "10000");
-            opcodeDictionary.Add("div", "10001");
-            opcodeDictionary.Add("neg", "10010");//
-            opcodeDictionary.Add("not", "10011");//
-            opcodeDictionary.Add("brzr", "10100");
-            opcodeDictionary.Add("brnz", "10100");
-            opcodeDictionary.Add("brmi", "10100");
-            opcodeDictionary.Add("brpl", "10100");
-            opcodeDictionary.Add("jr", "10101");
-            opcodeDictionary.Add("jal", "10110");
-            opcodeDictionary.Add("in", "10111");
-            opcodeDictionary.Add("out", "11000");
-            opcodeDictionary.Add("mfhi", "11001");
-            opcodeDictionary.Add("mflo", "11010");
-            opcodeDictionary.Add("nop", "11011");
-            opcodeDictionary.Add("halt", "11100");
+            opcodeDictionary.Add("add", "00011"); // Arithmetic and logic
+            opcodeDictionary.Add("sub", "00100");
+            opcodeDictionary.Add("shr", "00101");
+            opcodeDictionary.Add("shl", "00110");
+            opcodeDictionary.Add("ror", "00111");
+            opcodeDictionary.Add("rol", "01000");
+            opcodeDictionary.Add("and", "01001");
+            opcodeDictionary.Add("or", "01010"); //
+            opcodeDictionary.Add("addi", "01011");
+            opcodeDictionary.Add("andi", "01100");
+            opcodeDictionary.Add("ori", "01101");
+            opcodeDictionary.Add("mul", "01110");
+            opcodeDictionary.Add("div", "01111");
+            opcodeDictionary.Add("neg", "10000");//
+            opcodeDictionary.Add("not", "10001");//
+            opcodeDictionary.Add("brzr", "10010"); // Branch instructions, all same op code
+            opcodeDictionary.Add("brnz", "10010"); // see branch suffix for differences
+            opcodeDictionary.Add("brmi", "10010");
+            opcodeDictionary.Add("brpl", "10010");
+            opcodeDictionary.Add("jr", "10011");  // Jump instructions
+            opcodeDictionary.Add("jal", "10100");
+            opcodeDictionary.Add("in", "10101");  // input/output and MFHI/MFLO 
+            opcodeDictionary.Add("out", "10110");
+            opcodeDictionary.Add("mfhi", "10111");
+            opcodeDictionary.Add("mflo", "11000");
+            opcodeDictionary.Add("nop", "11001");
+            opcodeDictionary.Add("halt", "11010");
 
-            branchSuffix.Add("brzr", "00");
+            branchSuffix.Add("brzr", "00"); // branch suffix specification
             branchSuffix.Add("brnz", "01");
             branchSuffix.Add("brpl", "10");
             branchSuffix.Add("brmi", "11");

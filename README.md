@@ -1,14 +1,18 @@
-# ELEC374 MiniSRC Assembler / MIF Generator
+# ELEC374 MiniSRC Assembler / MIF Generator - Winter 2021
 
-A fantastic upper year has written this code to convert some basic assembly into opcode for the ELEC 374 course at Queen's University.[Queen's ELEC374 Course](https://www.ece.queensu.ca/undergraduate/courses/elec-374.html). It has been adapted to fit the cpuspecs of winter 2021.
+A fantastic upper year has written this code to convert some basic assembly into opcode for the ELEC 374 course at Queen's University. [Queen's ELEC374 Course](https://www.ece.queensu.ca/undergraduate/courses/elec-374.html). It has been adapted to fit the cpuspecs of winter 2021.
 
-!["Screenshot of the program"](https://raw.githubusercontent.com/mitchellwaite/MiniSRC-Assembler/master/Screenshot.png)
+The OPCode dictionary in InstructionParser.cs has been updated
+
+!["Screenshot of the program"](Screenshot.png)
 
 # MiniSRC 3-Bus CPU
 
+For a sample of the MiniSRC architecture unique to this course, you can browse Mitch's implementation on his git.
+
 * [Download the VHDL files for the custom MiniSRC 3-Bus CPU Here](https://github.com/mitchellwaite/MiniSRC-CPU)
 
-# Downloads
+# Downloads - Winter 2021
 * [Download the minisrc assembler here](https://github.com/mitchellwaite/MiniSRC-Assembler/raw/master/MiniSRC_ASM/MiniSRC_ASM_CMD/bin/Debug/minisrc_asm.exe)
 * [Download the MiniSRC ISA spec here](https://github.com/mitchellwaite/MiniSRC-Assembler/raw/master/CPU_Spec.pdf)
 
