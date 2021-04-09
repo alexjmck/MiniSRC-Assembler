@@ -54,6 +54,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="test-2021.s" />
     <Content Include="test.s">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

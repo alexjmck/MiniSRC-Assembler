@@ -18,10 +18,12 @@ For a sample of the MiniSRC architecture unique to this course, you can browse M
 
 # How to run
 
-Windows: minisrc_asm.exe [file] [output] [size] [options]
+Windows cmd: minisrc_asm.exe [file] [output] [size] [options]
+
+ex: `minisrc_asm.exe procedure.s output.mif 32`
+ex2: `minisrc_asm.exe procedure.s output.mif 32 -showfile`
 
 Mac/Linux *(you must install the mono framework)*: mono minisrc_asm.exe [file] [output] [options]
-
 
 [file] is the path to your input .asm/.s file, containing MiniSRC Assembly Code
 
