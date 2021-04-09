@@ -20,6 +20,7 @@ namespace MiniSRC_ASM_CMD
             List<FileParserException> exceptionList = new List<FileParserException>();
 
             Console.WriteLine("--MiniSRC Assembler by Mitchell Waite--\n");
+            Console.WriteLine("-- Updated for 2021 by Alex McKinnon --\n");
 
             if (args.Length == 0)
             {

@@ -342,123 +342,6 @@ namespace MiniSRC_ASM_CMD
                             }
 
 
-                        //load indexed
-                        case "ldr":
-                            {
-                                string[] regString;
-
-                             
-                                if (wsplit.Length > 2)
-                                {
-                                    regString = (wsplit[1] + wsplit[2]).Split(',');
-
-                                    if (wsplit.Length > 3)
-                                    {
-                                        //dump warning
-                                    }
-                                }
-                                else
-                                {
-                                    regString = wsplit[1].Split(',');
-                                }
-
-                                s.AppendFormat("{0}0000", RxToBin(FileParser.TrimWhiteSpace(regString[0])));
-
-                                string immString = FileParser.TrimWhiteSpace(regString[1]);
-                                int c_sx = 0;
-
-                                string c_sx_string = "";
-
-                                if (immString.StartsWith("$"))
-                                {
-                                    immString = immString.Remove(0, 1);
-                                    c_sx = Convert.ToInt32(immString, 16);
-                                }
-                                else if (immString.ToLower().StartsWith("0x"))
-                                {
-                                    c_sx = Convert.ToInt32(immString, 16);
-                                }
-                                else
-                                {
-                                    c_sx = Convert.ToInt32(immString);
-                                }
-
-                                if (c_sx < -524288 || c_sx > 524287)
-                                {
-                                    throw new ArgumentOutOfRangeException("Immediate Value out of range.");
-                                }
-                                else
-                                {
-                                    c_sx_string = String.Format(Convert.ToString(c_sx, 2)).PadLeft(19, '0');
-                                    if (c_sx_string.Length > 19) //remove erroneous 1s
-                                    {
-                                        c_sx_string = c_sx_string.Substring(c_sx_string.Length - 19, 19);
-                                    }
-                                }
-
-                                s.AppendFormat("{0}", c_sx_string);
-
-                                tmpInst.outputInstructionString = Convert.ToUInt32(s.ToString(), 2).ToString("X");
-                                return tmpInst;
-                            }
-                        case "str":
-                            {
-                                string[] regString;
-
-
-                                if (wsplit.Length > 2)
-                                {
-                                    regString = (wsplit[1] + wsplit[2]).Split(',');
-
-                                    if (wsplit.Length > 3)
-                                    {
-                                        //dump warning
-                                    }
-                                }
-                                else
-                                {
-                                    regString = wsplit[1].Split(',');
-                                }
-
-                                s.AppendFormat("{0}0000", RxToBin(FileParser.TrimWhiteSpace(regString[1])));
-
-                                string immString = FileParser.TrimWhiteSpace(regString[0]);
-                                int c_sx = 0;
-
-                                string c_sx_string = "";
-
-                                if (immString.StartsWith("$"))
-                                {
-                                    immString = immString.Remove(0, 1);
-                                    c_sx = Convert.ToInt32(immString, 16);
-                                }
-                                else if (immString.ToLower().StartsWith("0x"))
-                                {
-                                    c_sx = Convert.ToInt32(immString, 16);
-                                }
-                                else
-                                {
-                                    c_sx = Convert.ToInt32(immString);
-                                }
-
-                                if (c_sx < -524288 || c_sx > 524287)
-                                {
-                                    throw new ArgumentOutOfRangeException("Immediate Value out of range.");
-                                }
-                                else
-                                {
-                                    c_sx_string = String.Format(Convert.ToString(c_sx, 2)).PadLeft(19, '0');
-                                    if (c_sx_string.Length > 19) //remove erroneous 1s
-                                    {
-                                        c_sx_string = c_sx_string.Substring(c_sx_string.Length - 19, 19);
-                                    }
-                                }
-
-                                s.AppendFormat("{0}", c_sx_string);
-
-                                tmpInst.outputInstructionString = Convert.ToUInt32(s.ToString(), 2).ToString("X");
-                                return tmpInst;
-                            }
                         //operation,register instructions
                         case "jal":
                         case "jr":
@@ -625,11 +508,47 @@ namespace MiniSRC_ASM_CMD
                                     regString = wsplit[1].Split(',');
                                 }
 
-                                s.AppendFormat("{0}{1}", RxToBin(FileParser.TrimWhiteSpace(regString[0])), RxToBin(FileParser.TrimWhiteSpace(regString[1])));
-
-                                s = new StringBuilder(s.ToString().PadRight(30, '0'));
+                                s.AppendFormat("{0}{1}", RxToBin(FileParser.TrimWhiteSpace(regString[0])), "00");
 
                                 s.Append(branchSuffix[wsplit[0]]);
+
+
+                                // Constant added to end
+                                string immString = FileParser.TrimWhiteSpace(regString[1]);
+                                int c_sx = 0;
+
+                                string c_sx_string = "";
+
+                                if (immString.StartsWith("$"))
+                                {
+                                    immString = immString.Remove(0, 1);
+                                    c_sx = Convert.ToInt32(immString, 16);
+                                }
+                                else if (immString.ToLower().StartsWith("0x"))
+                                {
+                                    c_sx = Convert.ToInt32(immString, 16);
+                                }
+                                else
+                                {
+                                    c_sx = Convert.ToInt32(immString);
+                                }
+
+                                if (c_sx < -524288 || c_sx > 524287)
+                                {
+                                    throw new ArgumentOutOfRangeException("Immediate Value out of range.");
+                                }
+                                else
+                                {
+                                    c_sx_string = String.Format(Convert.ToString(c_sx, 2)).PadLeft(19, '0');
+                                    if (c_sx_string.Length > 19) //remove erroneous 1s
+                                    {
+                                        c_sx_string = c_sx_string.Substring(c_sx_string.Length - 19, 19);
+                                    }
+                                }
+
+                                s.AppendFormat("{0}", c_sx_string);
+
+
 
                                 tmpInst.outputInstructionString = Convert.ToUInt32(s.ToString(), 2).ToString("X");
                                 return tmpInst;
