@@ -43,7 +43,7 @@ namespace MiniSRC_ASM_CMD
             opcodeDictionary.Add("out", "10110");
             opcodeDictionary.Add("mfhi", "10111");
             opcodeDictionary.Add("mflo", "11000");
-            opcodeDictionary.Add("nop", "11001");
+            opcodeDictionary.Add("nop", "11001"); // hardcoded later in the code
             opcodeDictionary.Add("halt", "11010");
 
             branchSuffix.Add("brzr", "00"); // branch suffix specification
@@ -85,12 +85,12 @@ namespace MiniSRC_ASM_CMD
 
             if(instruction == "nop")
             {
-                tmpInst.outputInstructionString = "D8000000";
+                tmpInst.outputInstructionString = "C8000000";
                 return tmpInst; //opcode for NOP
             }
             else if(instruction == "halt")
             {
-                tmpInst.outputInstructionString = "E0000000"; //opcode for HALT!
+                tmpInst.outputInstructionString = "D0000000"; //opcode for HALT!
                 return tmpInst;
             }
             else //not a single word no operand instruction
